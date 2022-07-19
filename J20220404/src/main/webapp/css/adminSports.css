@@ -1,0 +1,107 @@
+@charset "UTF-8";
+.wrap {
+	width:80%;
+	height: 100%;
+	text-align: center;
+	margin-left: auto;
+	margin-right: auto;
+} 
+
+.centerInsert{
+	text-align: center;
+	font-size: 30px;
+	color: #ffd590;
+	font-weight: 900;
+}
+.centerImg {
+	width: 80;
+	height: 80;
+}
+
+.myButton {
+	background:  white;
+	border-radius: 20px;
+	border: 1px solid  #cfe1ff;
+	display: inline-block;
+	cursor: pointer;
+	color:  #cfe1ff;
+	font-size: 15px;
+	padding: 13px 31px;
+	margin: 10px 15px;
+	text-decoration: none;
+	text-shadow: 0px 1px 0px;
+}
+
+.myButton:hover {
+	background-color: #cfe1ff;
+	color: white;
+}
+
+.myButton:active {
+	position: relative;
+	top: 1px;
+}
+
+.total {
+	width: 80%;
+	margin-top: 15px;
+	margin-left: auto;
+	margin-right: auto;
+	font-size: 20px;
+}
+.adminTable{
+ 	text-align: center;
+ 	line-height: 1.5;
+	width: 80%;
+	border: 1px solid #cfe1ff;
+	border-collapse: collapse;
+	color: #566f99;
+	padding: 0px;
+	font-size: 18px;
+	margin-left: auto;
+	margin-right: auto;
+}
+.adminTable th {
+	background-color:	#cfe1ff;
+	color: white;
+	text-align: center;
+}
+.adminTable tr:nth-child(odd) {
+	background-color: #eff5ff;
+}
+.adminTable td:nth-child(2) {
+		text-align: left;
+}
+.adminTable td:nth-child(3) {
+		text-align: left;
+}
+.Tbtn {
+	border: none;
+	color: #566f99;
+	background-color: white;
+	font-size: 15px;
+	text-decoration: none;
+	font-family: "GangwonEdu_OTFBoldA";
+}
+.adminTable tr:nth-child(odd) input {
+	color: #566f99;
+	background-color: #eff5ff;
+}
+ 
+.insert {
+	width:100%;
+	margin-top: 20px;
+	margin-left: auto;
+	margin-right:auto;
+	text-align: center;	 
+}
+.insert input {
+	background-color: #ffd590;
+	border: none;
+	border-radius: 15px;
+	color: white;
+	font-size: 20px;
+	padding: 10px;
+	font-family: "GangwonEdu_OTFBoldA";
+	
+} 

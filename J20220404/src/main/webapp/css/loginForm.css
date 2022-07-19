@@ -1,0 +1,121 @@
+@charset "UTF-8";
+.login {
+	font-size: 33px;
+	margin-bottom: 22px;
+}
+
+.login_table {
+	border-color: #90baff;
+	border-collapse: collapse;
+	font-size: 25px;
+	background: white;
+	width: 37%;
+	margin-bottom: 10px;
+}
+.login_table td:nth-child(1){
+	color: white;
+	background:  #B2CCFF;
+	padding: 5px;
+	vertical-align: middle;
+	width: 30%;
+}
+.login_table td:nth-child(2){
+	color: black;
+	float: none;
+	width: 37%;
+}
+#sub_button {
+	border-radius: 10px;
+	background-color: #ffca5d;
+	color: white;
+	float: none;
+	width: 14%;
+	height: 40px;
+	margin-right: 1%;
+	font-family: "GangwonEdu_OTFLightA";
+}
+#sub_button:hover{
+      background-color: white;
+      color: #ffca5d;
+      font-weight: bolder;
+      cursor: pointer;
+      border: 1px dotted #735dff;
+}
+#res_button {
+	border-radius: 10px;
+	background-color: #90baff;
+	color: white;
+	float: none;
+	width: 80px;
+}
+#join_button {
+	border-radius: 10px;
+	border: 1px solid #fdd3529e;
+	background-color: #90baff;
+	color: white;
+	float: none;
+	width: 90px;
+	font-size: 17px;
+}
+#idCheck_button {
+	border-radius: 10px;
+	border: 1px solid #fdd3529e;
+	background-color: #90baff;
+	color: white;
+	float: none;
+	width: 115px;
+	font-size: 17px;
+}
+#psCheck_button {
+	border-radius: 10px;
+	border: 1px solid #fdd3529e;
+	background-color: #90baff;
+	color: white;
+	float: none;
+	width: 135px;
+	font-size: 17px;
+}
+.text {
+	float: left;
+	width: 95%;
+	text-align: left;
+}
+body {
+	text-align: center;
+}
+table {
+	background-color: #90baff;
+	width: 100px;
+	margin: auto;
+}
+tr {
+	font-size: 24; 
+}
+input {
+	font-size: 20px; 
+	border: none;
+}
+#btn{
+	border-radius: 10px;
+	background-color: #ffca5d;
+	color: white;
+	float: none;
+	width: 14%;
+	height: 40px;
+	font-family: "GangwonEdu_OTFLightA";
+	text-align: center;
+}
+#btn:hover{
+    background-color: white;
+    color: #ffca5d;
+    font-weight: bolder;
+    cursor: pointer;
+    border: 1px dotted #3840c5;
+}
+
+@font-face {
+    font-family: 'GangwonEdu_OTFLightA';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2201-2@1.0/GangwonEdu_OTFLightA.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}

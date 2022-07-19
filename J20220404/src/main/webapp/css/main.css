@@ -1,0 +1,307 @@
+@charset "UTF-8";
+
+
+.button {
+	background-color: #ffca5d;
+    border: 0;
+    outline: 0;
+    color: white;
+    width: 117px;
+    height: 43px;
+    padding-top: 8px;
+    text-align: center;
+    display: flex;
+    font-size: 2em;
+    border-radius: 30px;
+    font-weight: bold;
+    font-family: "GangwonEdu_OTFBoldA";
+    cursor: pointer;
+    align-items: center;
+    justify-content: center;
+}
+
+.search-box{
+    padding: 10px;
+    height: 30px;
+    background-color: #fff;
+    border: 2px solid #90baff;
+    border-radius: 30px;
+    width: 35%;
+    overflow: hidden;
+    position: relative;
+    left: 50%;
+    top: 16%;
+    transform: translateX(-50%);
+}
+.search-btn{
+	text-decoration: none;
+    float: right;
+    width: 30px;
+    height: 30px;
+    background-color: #90baff;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #90baff;
+    white-space: nowrap;
+    border: none;
+}
+
+.search-txt{
+  display: flex;
+  border:none;
+  background: none;
+  outline: none;
+  float: left;
+  font-size: 1rem;
+  line-height: 30px;
+  transition: .5s;
+}
+.search-txt{
+  width: 40%;
+  padding: 0 6px;
+}
+
+.button-area {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    top: 24%;
+    position: relative;
+	height: 5%;
+	margin-left: 17%;
+	margin-right: 17%;
+	margin-bottom: 58px;
+}
+
+.pagedown {
+    scroll-behavior: smooth;
+    background-color: white;
+    border: 0;
+    position: relative;
+    top: 30%;
+    right: -2%;
+}
+
+.search-page {
+	height: 60%;
+    width: 100%;
+    padding-bottom: 2%;
+}
+
+
+.search-subject{
+    background-color: white;
+    text-align: left;
+    border: 1px solid #90baff;
+    width: 80%;
+    position: relative;
+    top: 10%;
+    left: 9%;
+    height: 306px;
+    overflow-y: scroll;
+    table-layout: fixed;
+}
+
+.search-subject::-webkit-scrollbar { 
+  width: 0 !important;
+  display: none; 
+}
+
+.search-content{
+    background-color: white;
+    text-align: left;
+    border: 1px solid #90baff;
+    width: 80%;
+    position: relative;
+    top: 14%;
+    left: 9%;
+    height: 306px;
+    overflow-y: scroll;
+    table-layout: fixed;
+}
+
+.search-content::-webkit-scrollbar { 
+  width: 0 !important;
+  display: none; 
+}
+
+.search-subject a{
+	text-decoration-line: none;
+	color:  #90baff;
+	
+}
+
+.search-subject a:visited{
+	text-decoration-line: none;
+	color:  #90baff;
+	
+}
+
+.search-content a{
+	text-decoration-line: none;
+	color:  #90baff;
+	
+}
+
+.search-content a:visited{
+	text-decoration-line: none;
+	color:  #90baff;
+}
+
+.searchsubject-header {
+    font-size: 2rem;
+    padding: 15px;
+    text-align: center;
+    margin-top: 10px;
+}
+
+.searchcontent-header {
+    font-size: 2rem;
+    padding: 15px;
+    text-align: center;
+    margin-top: 10px;
+}
+
+.tableborder {
+	table-layout: fixed;
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.tableheader {
+	color: black;
+    font-size: 30px;
+    font-family: "GangwonEdu_OTFBoldA";
+    text-align: center;
+}
+
+.tableheader th{
+	width: 15%;
+    font-size: 30px;
+    font-family: "GangwonEdu_OTFBoldA";
+    padding: 5px;
+	text-align: left;
+}
+
+.tableheader th + th{
+	width: auto;
+	padding: 14px;
+}
+#tableSearch{
+	text-align: center;
+}
+#tableSubject {
+	text-align: left;
+}
+
+.subTableText {
+    color: black;
+    font-size: 30px;
+    font-family: "GangwonEdu_OTFBoldA";
+    padding: 5px;
+}
+
+.subTableText td{
+    color: black;
+    font-size: 28px;
+    width: 15%;
+    font-family: "GangwonEdu_OTFBoldA";
+    text-align: center;
+    padding: 8px;
+}
+
+.subTableText td+td{
+    width: 65%;
+    text-align: left;
+    
+}
+
+
+.ContentTableText {
+    color: black;
+    font-size: 30px;
+    font-family: "GangwonEdu_OTFBoldA";
+    padding: 5px;
+}
+
+.ContentTableText td{
+    color: black;
+    font-size: 28px;
+    width: 15%;
+    font-family: "GangwonEdu_OTFBoldA";
+    text-align: center;
+    padding: 8px;
+}
+
+.ContentTableText td+td{
+    width: 65%;
+    text-align: left;
+    
+}
+
+@font-face {
+	font-family: gangwonLight;
+	src: url('../font/GangwonLight.ttf') format('truetype');
+}
+
+.floating { 
+	background-color:#f9f9f9; 
+	position: fixed; 
+	right: 43%; 
+	top: 369px; 
+	margin-right: -615px; 
+	text-align:center; 
+	width: 90px;
+	font-size: 20px;
+	border: 1px solid #cbe3ff;
+	border-radius: 8px;
+} 
+
+.floating div:nth-child(1){ 
+	border-bottom:1px solid #cbe3ff; 
+	border-top-left-radius: 8px;
+	border-top-right-radius: 8px; 
+	padding: 8%;
+	background-color: #cbe3ff;
+	cursor: pointer;
+	color: #6272e7;
+	font-weight: bold;
+} 
+.floating div:nth-child(1):hover{
+	background-color: #ffca5d;
+	color: #90baff;
+	font-weight: bolder;
+}
+
+.floating div:nth-child(2){ 
+	border-bottom:1px solid #cbe3ff; 
+	padding: 15%;
+	background-color: white;
+	cursor: pointer;
+} 
+.floating div:nth-child(3){ 
+	border-bottom:1px solid #cbe3ff; 
+	padding: 15%;
+	background-color: white;
+	cursor: pointer;
+}
+.floating div:nth-child(4){ 
+	border-bottom:1px solid #cbe3ff; 
+	padding: 15%;
+	background-color: white; 
+	cursor: pointer;
+}
+.floating div:nth-child(5){ 
+	border-bottom-left-radius: 8px;
+	border-bottom-right-radius: 8px; 
+	background-color: white; 
+	padding: 15%;
+	cursor: pointer;
+}
+.floating div:hover{
+	background-color: #dae3ff;
+	color: white;
+	font-weight: border;
+}

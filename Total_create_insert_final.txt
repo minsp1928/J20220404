@@ -1,0 +1,568 @@
+drop table admin;
+drop table admin_log;
+drop table check_sports;
+drop table common;
+drop table hash;
+drop table community;
+drop table inter_sports;
+drop table outuser;
+drop table sports;
+drop table member;
+
+/* 헬스/ 수영/ 필라요가/ 골프/ 기타 */
+CREATE TABLE sports (
+	sport_type VARCHAR2(1) NOT NULL, /* 종목유형 */
+	exnum NUMBER(2) NOT NULL, /* 센터 번호 */
+	exName VARCHAR2(100) NOT NULL, /* 센터명 */
+	pictureUrl VARCHAR2(100), /* 사진 */
+	exContext VARCHAR2(1000) NOT NULL, /* 소개 */
+	time VARCHAR2(100), /* 영업시간 */
+	loc VARCHAR2(100) NOT NULL, /* 위치 */
+	homeUrl VARCHAR2(100), /* 홈페이지 */
+	tel VARCHAR2(20) /* 전화번호 */
+);
+
+CREATE UNIQUE INDEX PK_sports
+	ON sports (
+		sport_type ASC,
+		exnum ASC
+	);
+
+ALTER TABLE sports
+	ADD
+		CONSTRAINT PK_sports
+		PRIMARY KEY (
+			sport_type,
+			exnum
+		);
+
+COMMENT ON TABLE sports IS '헬스/ 수영/ 필라요가/ 골프/ 기타';
+
+COMMENT ON COLUMN sports.sport_type IS '종목유형';
+
+COMMENT ON COLUMN sports.exnum IS '센터 번호';
+
+COMMENT ON COLUMN sports.exName IS '센터명';
+
+COMMENT ON COLUMN sports.pictureUrl IS '사진';
+
+COMMENT ON COLUMN sports.exContext IS '소개';
+
+COMMENT ON COLUMN sports.time IS '영업시간';
+
+COMMENT ON COLUMN sports.loc IS '위치';
+
+COMMENT ON COLUMN sports.homeUrl IS '홈페이지';
+
+COMMENT ON COLUMN sports.tel IS '전화번호';
+
+/* 유저정보 */
+CREATE TABLE member (
+	user_id VARCHAR2(20) NOT NULL, /* 아이디 */
+	user_ps VARCHAR2(10) NOT NULL, /* 비밀번호 */
+	uname VARCHAR2(20) NOT NULL, /* 이름 */
+	id_num NUMBER(13) NOT NULL, /* 생년월일 */
+	gender VARCHAR2(3) NOT NULL, /* 성별 */
+	user_picture VARCHAR2(1000), /* 회원 사진 */
+	tel VARCHAR2(13) NOT NULL, /* 연락처 */
+	register_date DATE NOT NULL, /* 가입 날짜 */
+	status VARCHAR2(1) DEFAULT 1 NOT NULL /* 상태  */
+);
+
+CREATE UNIQUE INDEX PK_member
+	ON member (
+		user_id ASC
+	);
+
+ALTER TABLE member
+	ADD
+		CONSTRAINT PK_member
+		PRIMARY KEY (
+			user_id
+		);
+
+COMMENT ON TABLE member IS '유저정보';
+
+COMMENT ON COLUMN member.user_id IS '아이디';
+
+COMMENT ON COLUMN member.user_ps IS '비밀번호';
+
+COMMENT ON COLUMN member.uname IS '이름';
+
+COMMENT ON COLUMN member.id_num IS '생년월일';
+
+COMMENT ON COLUMN member.gender IS '성별';
+
+COMMENT ON COLUMN member.user_picture IS '회원 사진';
+
+COMMENT ON COLUMN member.tel IS '연락처';
+
+COMMENT ON COLUMN member.register_date IS '가입 날짜';
+
+COMMENT ON COLUMN member.status IS '상태 ';
+
+/* 탈퇴유저 */
+CREATE TABLE outuser (
+	user_id VARCHAR2(20) NOT NULL, /* 아이디 */
+	unregister_reason VARCHAR2(1) /* 탈퇴사유 */
+);
+
+COMMENT ON TABLE outuser IS '탈퇴유저';
+
+COMMENT ON COLUMN outuser.user_id IS '아이디';
+
+COMMENT ON COLUMN outuser.unregister_reason IS '탈퇴사유';
+
+/* 후기 / 질문 / 식단 / 잡담 */
+CREATE TABLE community (
+	num NUMBER(5) NOT NULL, /* 글번호 */
+	user_id VARCHAR2(20) NOT NULL, /* 작성자 */
+	com_type NUMBER(3) NOT NULL, /* 게시판유형  */
+	subject VARCHAR2(100 BYTE) NOT NULL, /* 글제목 */
+	content VARCHAR2(4000 BYTE) NOT NULL, /* 글내용 */
+	poto VARCHAR2(1000 BYTE), /* 첨부사진 */
+	count NUMBER(5) NOT NULL, /* 조회수 */
+	ref NUMBER(5), /* 댓글끼리그룹 */
+	re_step NUMBER(5), /* ref내의 순서 */
+	re_level NUMBER(5), /* 들여쓰기 */
+	reg_date DATE NOT NULL, /* 작성일 */
+	reco NUMBER(5) NOT NULL, /* 추천수 */
+	re_content VARCHAR2(200) /* 댓글내용 */
+);
+
+CREATE UNIQUE INDEX PK_community
+	ON community (
+		num ASC
+	);
+
+ALTER TABLE community
+	ADD
+		CONSTRAINT PK_community
+		PRIMARY KEY (
+			num
+		);
+
+COMMENT ON TABLE community IS '후기 / 질문 / 식단 / 잡담';
+
+COMMENT ON COLUMN community.num IS '글번호';
+
+COMMENT ON COLUMN community.user_id IS '작성자';
+
+COMMENT ON COLUMN community.com_type IS '게시판유형 ';
+
+COMMENT ON COLUMN community.subject IS '글제목';
+
+COMMENT ON COLUMN community.content IS '글내용';
+
+COMMENT ON COLUMN community.poto IS '첨부사진';
+
+COMMENT ON COLUMN community.count IS '조회수';
+
+COMMENT ON COLUMN community.ref IS '댓글끼리그룹';
+
+COMMENT ON COLUMN community.re_step IS 'ref내의 순서';
+
+COMMENT ON COLUMN community.re_level IS '들여쓰기';
+
+COMMENT ON COLUMN community.reg_date IS '작성일';
+
+COMMENT ON COLUMN community.reco IS '추천수';
+
+COMMENT ON COLUMN community.re_content IS '댓글내용';
+
+/* 해시 */
+CREATE TABLE hash (
+	num NUMBER(5) NOT NULL, /* 글번호 */
+	h_seq NUMBER(3) NOT NULL, /* 해시테그글순 */
+	hsre_content VARCHAR2(30 BYTE) /* 해시글내용 */
+);
+
+CREATE UNIQUE INDEX PK_hash
+	ON hash (
+		num ASC,
+		h_seq ASC
+	);
+
+ALTER TABLE hash
+	ADD
+		CONSTRAINT PK_hash
+		PRIMARY KEY (
+			num,
+			h_seq
+		);
+
+COMMENT ON TABLE hash IS '해시';
+
+COMMENT ON COLUMN hash.num IS '글번호';
+
+COMMENT ON COLUMN hash.h_seq IS '해시테그글순';
+
+COMMENT ON COLUMN hash.hsre_content IS '해시글내용';
+
+/* 분류 */
+CREATE TABLE common (
+	bcd VARCHAR2(4) NOT NULL, /* 대분류 */
+	mcd VARCHAR2(4) NOT NULL, /* 중분류 */
+	con VARCHAR2(50) /* 내용 */
+);
+
+CREATE UNIQUE INDEX PK_common
+	ON common (
+		bcd ASC,
+		mcd ASC
+	);
+
+ALTER TABLE common
+	ADD
+		CONSTRAINT PK_common
+		PRIMARY KEY (
+			bcd,
+			mcd
+		);
+
+COMMENT ON TABLE common IS '분류';
+
+COMMENT ON COLUMN common.bcd IS '대분류';
+
+COMMENT ON COLUMN common.mcd IS '중분류';
+
+COMMENT ON COLUMN common.con IS '내용';
+
+/* 관리자 */
+CREATE TABLE admin (
+	admin_id VARCHAR2(20) NOT NULL, /* 관리자 아이디 */
+	admin_ps VARCHAR2(20) NOT NULL /* 관리자 암호 */
+);
+
+CREATE UNIQUE INDEX PK_admin3
+	ON admin (
+		admin_id ASC
+	);
+
+ALTER TABLE admin
+	ADD
+		CONSTRAINT PK_admin3
+		PRIMARY KEY (
+			admin_id
+		);
+
+COMMENT ON TABLE admin IS '관리자';
+
+COMMENT ON COLUMN admin.admin_id IS '관리자 아이디';
+
+COMMENT ON COLUMN admin.admin_ps IS '관리자 암호';
+
+/* 관리자 로그인기록 */
+CREATE TABLE admin_log (
+	admin_date DATE NOT NULL, /* 관리자 접속시간 */
+	admin_ip VARCHAR2(30) NOT NULL /* 관리자 접속ip */
+);
+
+CREATE UNIQUE INDEX admin_log
+	ON admin_log (
+		admin_date ASC
+	);
+
+ALTER TABLE admin_log
+	ADD
+		CONSTRAINT admin_log
+		PRIMARY KEY (
+			admin_date
+		);
+
+COMMENT ON TABLE admin_log IS '관리자 로그인기록';
+
+COMMENT ON COLUMN admin_log.admin_date IS '관리자 접속시간';
+
+COMMENT ON COLUMN admin_log.admin_ip IS '관리자 접속ip';
+
+/* 찜한 헬스/ 수영/ 필라요가/ 골프/ 기타 */
+CREATE TABLE check_sports (
+	user_id VARCHAR2(20) NOT NULL, /* 아이디 */
+	sport_type VARCHAR2(1) NOT NULL, /* 종목유형 */
+	exnum NUMBER(2) NOT NULL /* 센터 번호 */
+);
+
+CREATE UNIQUE INDEX PK_check_sports
+	ON check_sports (
+		user_id ASC,
+		sport_type ASC,
+		exnum ASC
+	);
+
+ALTER TABLE check_sports
+	ADD
+		CONSTRAINT PK_check_sports
+		PRIMARY KEY (
+			user_id,
+			sport_type,
+			exnum
+		);
+
+COMMENT ON TABLE check_sports IS '찜한 헬스/ 수영/ 필라요가/ 골프/ 기타';
+
+COMMENT ON COLUMN check_sports.user_id IS '아이디';
+
+COMMENT ON COLUMN check_sports.sport_type IS '종목유형';
+
+COMMENT ON COLUMN check_sports.exnum IS '센터 번호';
+
+/* 관심 헬스/ 수영/ 필라요가/ 골프/ 기타 */
+CREATE TABLE inter_sports (
+	user_id VARCHAR2(20) NOT NULL, /* 아이디 */
+	sport_type VARCHAR2(1) NOT NULL /* 종목유형 */
+);
+
+CREATE UNIQUE INDEX PK_inter_sports
+	ON inter_sports (
+		user_id ASC,
+		sport_type ASC
+	);
+
+ALTER TABLE inter_sports
+	ADD
+		CONSTRAINT PK_inter_sports
+		PRIMARY KEY (
+			user_id,
+			sport_type
+		);
+
+COMMENT ON TABLE inter_sports IS '관심 헬스/ 수영/ 필라요가/ 골프/ 기타';
+
+COMMENT ON COLUMN inter_sports.user_id IS '아이디';
+
+COMMENT ON COLUMN inter_sports.sport_type IS '종목유형';
+
+ALTER TABLE outuser
+	ADD
+		CONSTRAINT FK_member_TO_outuser
+		FOREIGN KEY (
+			user_id
+		)
+		REFERENCES member (
+			user_id
+		);
+
+ALTER TABLE community
+	ADD
+		CONSTRAINT FK_member_TO_community
+		FOREIGN KEY (
+			user_id
+		)
+		REFERENCES member (
+			user_id
+		);
+
+ALTER TABLE hash
+	ADD
+		CONSTRAINT FK_community_TO_hash
+		FOREIGN KEY (
+			num
+		)
+		REFERENCES community (
+			num
+		);
+
+ALTER TABLE check_sports
+	ADD
+		CONSTRAINT FK_member_TO_check_sports
+		FOREIGN KEY (
+			user_id
+		)
+		REFERENCES member (
+			user_id
+		);
+
+ALTER TABLE inter_sports
+	ADD
+		CONSTRAINT FK_member_TO_inter_sports
+		FOREIGN KEY (
+			user_id
+		)
+		REFERENCES member (
+			user_id
+		);
+
+
+
+INSERT INTO MEMBER (USER_ID, USER_PS, UNAME, ID_NUM, GENDER, USER_PICTURE, TEL, REGISTER_DATE, STATUS) VALUES  ('namwoo', '1', '고남우', 19920817, '1', '', '010-9999-8888', TO_DATE('2022-01-11', 'YYYY-MM-DD'), 1);
+INSERT INTO MEMBER (USER_ID, USER_PS, UNAME, ID_NUM, GENDER, USER_PICTURE, TEL, REGISTER_DATE, STATUS) VALUES  ('sdsa12', '1', '이건혜', 19920817, '2', '', '010-8888-7777', TO_DATE('2022-03-29', 'YYYY-MM-DD'), 1);
+INSERT INTO MEMBER (USER_ID, USER_PS, UNAME, ID_NUM, GENDER, USER_PICTURE, TEL, REGISTER_DATE, STATUS) VALUES  ('running225', '1', '주석임', 19920817, '2', '','010-7777-6666', TO_DATE('2022-02-13', 'YYYY-MM-DD'), 1);
+INSERT INTO MEMBER (USER_ID, USER_PS, UNAME, ID_NUM, GENDER, USER_PICTURE, TEL, REGISTER_DATE, STATUS) VALUES  ('junghyun9', '1', '현정연', 19920817, '2', '', '010-6666-5555', TO_DATE('2022-05-29', 'YYYY-MM-DD'), 1);
+INSERT INTO MEMBER (USER_ID, USER_PS, UNAME, ID_NUM, GENDER, USER_PICTURE, TEL, REGISTER_DATE, STATUS) VALUES  ('golflover27', '1', '김시진', 19920817, '1', '', '010-555-4444',TO_DATE('2022-01-10', 'YYYY-MM-DD'), 1);
+INSERT INTO MEMBER (USER_ID, USER_PS, UNAME, ID_NUM, GENDER, USER_PICTURE, TEL, REGISTER_DATE, STATUS) VALUES  ('min2523', '1', '성민석', 19920817, '1', '','010-4444-3333',TO_DATE('2022-07-02', 'YYYY-MM-DD'), 1);
+INSERT INTO MEMBER (USER_ID, USER_PS, UNAME, ID_NUM, GENDER, USER_PICTURE, TEL, REGISTER_DATE, STATUS) VALUES  ('jny1925', '1', '장남영', 19920817, '1', '', '010-3333-2222', TO_DATE('2022-01-28', 'YYYY-MM-DD'), 1);
+INSERT INTO MEMBER (USER_ID, USER_PS, UNAME, ID_NUM, GENDER, USER_PICTURE, TEL, REGISTER_DATE, STATUS) VALUES  ('mym339', '1', '민영미', 19920817, '2', '', '010-3333-2222', TO_DATE('2021-11-15', 'YYYY-MM-DD'), 1);
+INSERT INTO MEMBER (USER_ID, USER_PS, UNAME, ID_NUM, GENDER, USER_PICTURE, TEL, REGISTER_DATE, STATUS) VALUES  ('ahn002', '1', '안혜영', 19920817, '2', '', '010-2222-1111', TO_DATE('2021-12-07', 'YYYY-MM-DD'), 1);
+INSERT INTO MEMBER (USER_ID, USER_PS, UNAME, ID_NUM, GENDER, USER_PICTURE, TEL, REGISTER_DATE, STATUS) VALUES  ('sw7922', '1', '강영우', 19920817, '1', '','010-1111-0000', TO_DATE('2022-06-24', 'YYYY-MM-DD'), 1);
+
+--			글번호 Num										         ref, re_step, re_level		
+-- 게시글유형 1 : 후기
+INSERT INTO community VALUES(1, 'namwoo', 101, '요기니요가후기', '요기니요가 편하고 좋아요 시설도 좋고 선생님도 잘 가르쳐주세요', '' , 0 ,        1,        0,        0, TO_DATE('2022-04-04','YYYY-MM-DD'), 0, '');
+INSERT INTO community VALUES(2, 'sdsa12', 101, '요기니요가후기댓글1', '요기니요가 편하고 좋아요 시설도 좋고 선생님도 잘 가르쳐주세요', '' , 0 ,        1,        1,        1, TO_DATE('2022-04-04','YYYY-MM-DD'), 0, '한달에 25만이에요');
+INSERT INTO community VALUES(3, 'namwoo', 101, '요기니요가후기대댓글1', '요기니요가 편하고 좋아요 시설도 좋고 선생님도 잘 가르쳐주세요', '' , 0 ,        1,        2,        2, TO_DATE('2022-04-04','YYYY-MM-DD'), 0, '한달에 얼마에요? ');
+
+INSERT INTO community VALUES(4, 'sdsa12', 101, '아우어필라테스후기', '아우어필라테스 편하고 좋아요 시설도 좋고 선생님도 잘 가르쳐주세요', '' , 0 ,	 4, 	0,         0, TO_DATE('2022-04-14','YYYY-MM-DD'), 0, '');
+INSERT INTO community VALUES(8, 'min2523', 101, '아우어필라테스댓글1', '아우어필라테스 편하고 좋아요 시설도 좋고 선생님도 잘 가르쳐주세요', '' , 0 ,	 4, 	1, 	1, TO_DATE('2022-04-14','YYYY-MM-DD'), 0, '기구필라테스만해요');
+INSERT INTO community VALUES(9, 'sdsa12', 101, '아우어필라테스댓댓글1', '아우어필라테스 편하고 좋아요 시설도 좋고 선생님도 잘 가르쳐주세요', '' , 0 ,	 4, 	2, 	2, TO_DATE('2022-04-14','YYYY-MM-DD'), 0,' 기구도 있나요?');
+
+INSERT INTO community VALUES(5, 'running225', 101, '제야딥요가스쿨 이대점', '제야딥요가스쿨 이대점 편하고 좋아요 시설도 좋고 타 지점보다 넓은것 같아요!! 선생님도 잘 가르쳐주세요', '' , 0 , 5, 0, 0, TO_DATE('2022-04-14','YYYY-MM-DD'), 0, '');
+INSERT INTO community VALUES(10, 'min2523',  101, '제야딥요가스쿨 이대점댓글', '제야딥요가스쿨 이대점 편하고 좋아요 시설도 좋고 타 지점보다 넓은것 같아요!! 선생님도 잘 가르쳐주세요', '' , 0 , 5, 1, 1, TO_DATE('2022-04-14','YYYY-MM-DD'), 0, '댓글댓글');
+
+INSERT INTO community VALUES(6, 'junghyun9' , 101, '조반 골프 스튜디오 후기', '조반 골프 스튜디오  편하고 좋아요 시설도 좋고 선생님도 잘 가르쳐주세요', '' , 0 , 6, 0, 0, TO_DATE('2022-04-14','YYYY-MM-DD'), 0, '');
+INSERT INTO community VALUES(7, 'golflover27' , 101, '엠엠에이짐 후기', '엠엠에이짐 편하고 좋아요 시설도 좋고 선생님도 잘 가르쳐주세요', '' , 0 , 7, 0, 0, TO_DATE('2022-04-14','YYYY-MM-DD'), 0, '');
+
+--게시글 유형 2 : 질문
+INSERT INTO community VALUES(11, 'jny1925' , 102, '엠에이짐질문있어요', '엠에짐 어떤가요?? 시설도 괜찮나요??', '' , 0 , 11, 0, 0, TO_DATE('2022-04-14','YYYY-MM-DD'), 0, '');
+INSERT INTO community VALUES(12, 'jny1925' , 102, '[답변]엠에이짐질문대답', '엠에이짐 좋아요 시설도 넓고 기구종류도 많고 트레이너샘 친절해요', '' , 0 , 11, 1, 1, TO_DATE('2022-04-14','YYYY-MM-DD'), 0, '후 지친다 지쳐');
+
+INSERT INTO community VALUES(13, 'mym339' , 102, '더스타일바디 PT STUDIO 이대역지점 질문이요', '다른 지점은 가봤는데 이대점도 비슷할까요?', '' , 0 , 13, 0, 0, TO_DATE('2022-04-14','YYYY-MM-DD'), 0, '');
+INSERT INTO community VALUES(14, 'jny1925' , 102, '[답변] 네 ', 'pt 끊었는데 선생님 설명 엄청 친절하세요!! 운동설명도 아주 친절하구요?음.. 댓글내용임', '' , 0 , 13, 1, 1, TO_DATE('2022-04-14','YYYY-MM-DD'), 0, 'pt 끊었는데 선생님 설명 엄청 친절하세요!! 운동설명도 아주 친절하구요?');
+
+INSERT INTO community VALUES(15, 'sw7922' , 102, '오늘부터핏 질문이요', 'pt만 전문인가요..???', '' , 0 , 15, 0, 0, TO_DATE('2022-04-14','YYYY-MM-DD'), 0, '');
+INSERT INTO community VALUES(16, 'ahn002' , 102, '[답변]오늘부터핏 질문이요', 'pt만 전문인가요..???댓글1', '' , 0 , 15, 1, 1, TO_DATE('2022-04-14','YYYY-MM-DD'), 0, '네 여기 거의 피티만 하는것 같더라구요 전 안해보긴했는데.. 가보시고 알려주세요');
+
+INSERT INTO community VALUES(17, 'junghyun9' , 102, '탑테니스 이대점 질문이요', '테니스 처음인데 신규 입문자도 할수있나요?', '' , 0 , 15, 0, 0, TO_DATE('2022-04-14','YYYY-MM-DD'), 0, '');
+INSERT INTO community VALUES(18, 'sw7922' , 102, '[답변]탑테니스 이대점 질문이요 댓글', '테니스 처음인데 신규 입문자도 할수있나요?댓글', '' , 0 , 17, 1, 1, TO_DATE('2022-04-14','YYYY-MM-DD'), 0, '네 초보분들도 많이들 하세요!');
+
+INSERT INTO community VALUES(19, 'sdsa12' , 102, '이희성주짓수아카데미 질문이요', '주짓수 처음할때 옷도 사야하나요?', '' , 0 , 19, 0, 0, TO_DATE('2022-04-14','YYYY-MM-DD'), 0, '');
+INSERT INTO community VALUES(20, 'namwoo' , 102, '이희성주짓수아카데미 질문이요댓글', '주짓수 처음할때 옷도 사야하나요?댓글', '' , 0 , 19, 1, 1, TO_DATE('2022-04-14','YYYY-MM-DD'), 0, '네.. 옷은 별도로 구매하셔야해요!!');
+
+
+--게시글 유형 3 : 식단
+
+insert into community VALUES (21,'sdsa12',103,'4월13일 식단','아침 사과, 점심 일반식 간식 바나나 저녁 닭가슴살100g 고구마150g','',0,21,0,0, sysdate,0,'');
+insert into community VALUES (22,'junghyun9', 103 ,'4월13일 식단','댓글1아침 사과, 점심 일반식 간식 바나나 저녁 닭가슴살100g 고구마150g','',0,21,1,1, sysdate,0,'네! 점심엔 먹고싶은걸로 먹고있어요~'); 
+insert into community VALUES (23,'sdsa12',103 ,'4월13일 식단','대댓글1아침 사과, 점심 일반식 간식 바나나 저녁 닭가슴살100g 고구마150g','',0,21,2,2, sysdate,0,'점심엔 보통 일반식은 그냥 평범하게 드시나요?');
+
+insert into community VALUES (24,'namwoo',103 ,'22.04.13','계란, 사과 ,샐러드 오트밀','',0,24,0,0, sysdate,0,'');
+
+insert into community VALUES (25,'golflover27', 103,'오늘의 식단!','아침 계란1개 고구마반조각, 점심 고구마1개 샐러드 닭가슴살 한 팩 간식 계란1개 저녁 계란7개','',0,25,0,0, sysdate,0,'');
+insert into community VALUES (26,'jny1925', 103 ,'오늘의 식단!','댓글1아침 사과, 점심 일반식 간식 바나나 저녁 닭가슴살100g 고구마150g','',0,25,1,1, sysdate,0,'오 멋있어요~');
+
+insert into community VALUES (27,'mym339', 103 ,'4월14일 식단','아침 사과, 점심 일반식 간식 바나나 저녁 닭가슴살100g 고구마150g','',0,27,0,0, sysdate,0,'');
+insert into community VALUES (28,'golflover27', 103 ,'4월14일 식단','댓글1아침 사과, 점심 일반식 간식 바나나 저녁 닭가슴살100g 고구마150g','',0,27,1,1, sysdate,0,'맛있어보이네요~ 닭가슴살 어디껀가요?');
+
+insert into community VALUES (29,'ahn002', 103 ,'아침엔 뭐먹지','아침 ..뭐먹을지 몰라서 못먹음 점심 일반식 간식 아몬드 저녁 닭가슴살100g 고구마150g','',0,29,0,0, sysdate,0,'');
+insert into community VALUES (30,'sw7922', 103 ,'아침엔 뭐먹지','댓글1아침 ..뭐먹을지 몰라서 못먹음 점심 일반식 간식 아몬드 저녁 닭가슴살100g 고구마150g','',0,29,1,1, sysdate,0,'아침에 오이 추천해요!');
+
+
+--게시글 유형 4 : 잡담
+insert into community VALUES (31,'namwoo', 104 ,'22.04.13','계란, 사과 ,샐러드 오트밀','',0,31,0,0, sysdate,0,'');
+
+insert into community VALUES (32,'junghyun9', 104 ,'오늘 생일인데...','치팅데이가 너무 고파요ㅠㅠㅠ 생일인데.. 먹어두 되겠죠..?','',0,32,0,0, sysdate,0,'');
+insert into community VALUES (33,'junghyun9', 104 ,'오늘 생일인데...','댓글1치팅데이가 너무 고파요ㅠㅠㅠ 생일인데.. 먹어두 되겠죠..?','',0,32,1,1, sysdate,0,'ㅎㅎ감사해요! 오늘은 그럼 맛난거 먹어야지..!'); 
+insert into community VALUES (34,'min2523', 104 ,'오늘 생일인데...','대댓글1치팅데이가 너무 고파요ㅠㅠㅠ 생일인데.. 먹어두 되겠죠..?','',0,32,2,2, sysdate,0,'아 생일이면 먹어야죠!! 생일 축하해요~');
+
+insert into community VALUES (35,'golflover27', 104 ,'랄라블라','뉴~클래스','',0,35,0,0, sysdate,0,'');
+insert into community VALUES (36,'mym339', 104 ,'랄라블라','댓글1뉴~클래스','',0,35,1,1, sysdate,0,'오 멋있어요~');
+
+insert into community VALUES (37,'jny1925', 104 ,'언니가 무서워요','언니가 자꾸 노래를 안멈춰요 모든 대화내용이 뮤지컬같아요','',0,37,0,0, sysdate,0,'');
+insert into community VALUES (38,'running225', 104 ,'언니가 무서워요','댓글1언니가 자꾸 노래를 안멈춰요 모든 대화내용이 뮤지컬같아요','',0,37,1,1, sysdate,0,'같이 노래로 대화하세요!');
+
+insert into community VALUES (39,'mym339', 104 ,'아니 조장기다리는데','왜 안오지 저 사람 물어볼거있는데 안오네...','',0,39,0,0, sysdate,0,'');
+insert into community VALUES (40,'ahn002', 104 ,'아니 조장기다리는데','댓글1왜 안오지 저 사람 물어볼거있는데 안오네...','',0,2.39,1,1, sysdate,0,'한번 연락 또해보세요!');
+
+-- hash 테이블
+INSERT INTO hash VALUES(1, 1, '후기');
+INSERT INTO hash VALUES(1, 2, '요가추천');
+INSERT INTO hash VALUES(4, 3, '필라테스추천');
+INSERT INTO hash VALUES(15, 4, 'PT질문');
+INSERT INTO hash VALUES(19, 5, '주짓수_운동_시작');
+--해시코드  글번호 해시,그글순서 해시글 내용
+insert into hash VALUES (21,6,'오늘');
+insert into hash VALUES (24,7,'식단');
+insert into hash VALUES (25,8,'건강식');
+insert into hash VALUES (31,9,'치팅_데이');
+insert into hash VALUES (34,10,'잡담');
+
+-- 아웃유저
+INSERT INTO OUTUSER VALUES  ('namwoo', 1);
+INSERT INTO OUTUSER VALUES  ('sdsa12', 1);
+INSERT INTO OUTUSER VALUES  ('running225', 2);
+INSERT INTO OUTUSER VALUES  ('junghyun9', 2);
+INSERT INTO OUTUSER VALUES  ('golflover27', 1);
+INSERT INTO OUTUSER VALUES  ('min2523', 3);
+INSERT INTO OUTUSER VALUES  ('jny1925', 3);
+INSERT INTO OUTUSER VALUES  ('mym339', 2);
+INSERT INTO OUTUSER VALUES  ('ahn002', 1);
+INSERT INTO OUTUSER VALUES  ('sw7922',  3);
+
+-- 센터소개 
+insert into sports values(1, 1, '오늘부터핏', '11.jpg', '이대신촌 여성전용PT 전문으로 디테일하고 정확하게 지도하여 헬린이 탈출! 결국에는 혼자서 운동할 수 있도록 도와드리겠습니다.', '10:00-22:00', '서울 서대문구 이화여대2길 10', 'http://blog.naver.com/randomsss', '0507-1412-3111');
+insert into sports values(1, 2, '더스타일바디 PT STUDIO 이대역', '12.jpg', '여성전용 PT스튜디오 #다이어트#바디라인 #근육, 체력증가 #재활및교정 #산후 운동 관리', '10:00-22:00', '서울 마포구 신촌로 174 중우빌딩 B1', 'http://blog.naver.com/thestylebody', '02-717-1711');
+insert into sports values(1, 3, '근력학교 이화점', '13.jpg', '여성을 더 강하게. 근력학교 이화점입니다. 피트니스를 통해 당신을 구하겠습니다.', '09:30-21:30', '서울 서대문구 이화여대길 76 3층', 'http://blog.naver.com/strengthewha', '02-363-0308');
+insert into sports values(1, 4, '엘리트네트', '', '안녕하세요 엘리트네트입니다.', '10:00-22:00', '서울 서대문구 신촌로 165-1', '', '02-6959-1930');
+insert into sports values(1, 5, '짐티피 연대이대 3호점', '15.jpg', '부담 없이, 경쟁 욕구나, 자격지심 따위의 마음은 내려놓고, 모두가 집처럼 생각하고 본인이 원하는 몸을 그리고 정신상태를 만들기 바랍니다.', '06:00-20:00', '서울 서대문구 명물길 74 지하1층, 지상1층 , 2층', 'https://blog.naver.com/gymtipi_3', '02-6374-0077');
+
+insert into sports values(2, 1, '헬스보이짐 수영장', '', '수영강습 가능합니다!#신촌수영장 #실내수영장', '06:00-23:00', '서울 서대문구 신촌로 109 르메이에르타운 5차 B4층', '', '0507-1327-1894');
+insert into sports values(2, 2, '창천교육 문화관', '', '더 깨끗해진 수영장으로 단장했습니다#마포구수영장#신촌스포츠센터', '06:00~23:00', '서울 마포구 백범로1길 56', 'http://www.korspo.co.kr', '02-714-9633');
+
+insert into sports values(3, 1, '포티포 피트니스 플라잉', '31.jpg', '포티포는 바르고 아름다운 몸을 추구합니다. 회원님들의 다이어트, 체형교정, 바디라인을 포티포에서!! 포티포와 함께 건강해지세요♥ #번지핏 #플라잉요가 #테라피요가 #키즈번지 #키즈플라잉 #운동하는여자', '11:00-22:00', '서울 서대문구 신촌로 173 2층', 'https://m.blog.naver.com/kaomkk1', '0507-1490-6890');
+insert into sports values(3, 2, '요기니요가', '32.jpg', '요가는 마음을 멈추는 것이라고 합니다. 서툰 하루를 보내며 그냥 마음이 흘러가 언젠가 멈출 수 있도록 깊은 호흡 속에서 아사나를 합니다.', '17:00-22:00', '서울 서대문구 이화여대1길 9 제원빌딩 3층', 'http://yoginicenter.modoo.at/', '02-529-2082');
+insert into sports values(3, 3, '아우어필라테스', '33.jpg', '몸과 마음의 아름다움을 찾기 위해 시작한 PILATES입니다. 제가 느꼈던 긍정적인 변화를 많은 분들에게 공유하고 싶습니다.', '08:00-21:00', '서울 서대문구 이화여대1길 15 샤인하우스 13층', 'http://blog.naver.com/ourpilates', '010-3936-1880');
+insert into sports values(3, 4, '제야딥요가스쿨 이대점', '34.jpg', '맑은 정신 건강한 몸 제야딥요가스쿨입니다.', '10:00-22:00', '서울 서대문구 이화여대길 26 이화빌딩', 'http://instagram.com/jdyoga2', '02-392-5959');
+
+insert into sports values(4, 1, '조반 골프 스튜디오', '41.jpg', '제대로 된 골프 스윙 실력! 이제 검증된 프로 골퍼와 정밀 시스템을 통해 가다듬어 보세요! ', '10:00-22:00', '서울특별시 서대문구 신촌로 215 1층 이대역과 아현역 중간 웨딩거리 위치', 'http://blog.naver.com/tjdwn212', '010-9985-0059');
+
+insert into sports values(5, 1, '엠엠에이짐', '51.jpg', '엠엠에이짐은 복싱 중심 MMA체육관으로서 체중감량, 체력강화, 및 취미생활을 즐기시려는 많은분들이 찾고 있습니다.', '14:00-22:00', '서울 서대문구 이화여대길 20 3층', 'http://instagram.com/mmagym007', '02-365-7628');
+insert into sports values(5, 2, '이희성주짓수아카데미', '52.jpg', '힉슨그레이시 계열 정통 주짓수 브라질리언주짓수 입문자 맞춤수업', '17:00-23:00', '서울 서대문구 이화여대1안길 3 VILAGEPLAZA', 'http://blog.naver.com/allisonebjj', '02-313-3392');
+insert into sports values(5, 3, '탑테니스 이대점', '53.jpg', '탑테니스 아카데미 이대점은 수준별 개인레슨으로 쉽고, 친절하게 테니스의 길로 안내합니다.', '06:00-23:00', '서울 마포구 신촌로 162 지하1층 탑테니스', 'https://toptennisewha.modoo.at', '0507-1389-4286');
+ 
+-- 관리자 
+insert into admin VALUES('admin', 'admin');
+
+-- common테이블
+INSERT INTO common VALUES (100, 101, '후기');
+INSERT INTO common VALUES (100, 102, '질문');
+INSERT INTO common VALUES (100, 103, '식단');
+INSERT INTO common VALUES (100, 104, '잡담');
+INSERT INTO common VALUES (200, 1, '헬스');
+INSERT INTO common VALUES (200, 2, '수영');
+INSERT INTO common VALUES (200, 3, '필라요가');
+INSERT INTO common VALUES (200, 4, '골프');
+INSERT INTO common VALUES (200, 5, '기타');
+INSERT INTO common VALUES (300, 301, '헬스');
+INSERT INTO common VALUES (300, 302, '수영');
+INSERT INTO common VALUES (300, 303, '필라요가');
+INSERT INTO common VALUES (300, 304, '골프');
+INSERT INTO common VALUES (300, 305, '기타');
+INSERT INTO common VALUES (400, 401, '헬스');
+INSERT INTO common VALUES (400, 402, '수영');
+INSERT INTO common VALUES (400, 403, '필라요가');
+INSERT INTO common VALUES (400, 404, '골프');
+INSERT INTO common VALUES (400, 405, '기타');
+INSERT INTO common VALUES (500, 501, '거주지변경');
+INSERT INTO common VALUES (500, 502, '타사이트이용');
+INSERT INTO common VALUES (500, 503, '기타');
+
+-- 관심운동종목
+INSERT INTO INTER_SPORTS VALUES  ('namwoo', 2);
+INSERT INTO INTER_SPORTS VALUES  ('sdsa12', 5);
+INSERT INTO INTER_SPORTS VALUES  ('running225', 1);
+INSERT INTO INTER_SPORTS VALUES  ('junghyun9', 2);
+INSERT INTO INTER_SPORTS VALUES  ('golflover27', 4);
+INSERT INTO INTER_SPORTS VALUES  ('min2523', 2);
+INSERT INTO INTER_SPORTS VALUES  ('jny1925', 2);
+INSERT INTO INTER_SPORTS VALUES  ('mym339', 2);
+INSERT INTO INTER_SPORTS VALUES  ('ahn002', 5);
+INSERT INTO INTER_SPORTS VALUES  ('sw7922',  3);
+
+-- insert check_sports
+insert into check_sports values('namwoo', '1', '1');
+insert into check_sports values('sdsa12', '1', '1');
+insert into check_sports values('running225', '1', '2');
+insert into check_sports values('junghyun9', '2', '1');
+insert into check_sports values('golflover27', '2', '1');
+insert into check_sports values('golflover27', '3', '1');
+insert into check_sports values('junghyun9', '3', '2');
+insert into check_sports values('mym339', '4', '1');
+insert into check_sports values('mym339', '5', '1');
+insert into check_sports values('mym339', '1', '1');
+
+-- insert admin_log
+insert into admin_log values('2022-04-25', '0:0:0:0:0:0:0:1');
+insert into admin_log values('2022-04-26', '0:0:0:0:0:0:0:1');
+insert into admin_log values('2022-04-28', '0:0:0:0:0:0:0:1');
+insert into admin_log values('2022-04-30', '0:0:0:0:0:0:0:1');
+insert into admin_log values(sysdate, '210.178.109.84');

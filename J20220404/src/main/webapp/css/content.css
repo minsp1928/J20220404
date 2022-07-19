@@ -1,0 +1,203 @@
+@charset "UTF-8";
+/*게시글 상세페이지*/
+#comCategorie {
+	width: 5em;
+	height: 20px;
+	text-align: center;
+	border-radius: 10px;
+	background-color: #c4dcff;
+	padding-top: 10px;
+	padding-bottom: 5px;
+	margin-left: 10px;
+	margin-right: 10px;
+	font-size: 16pt;
+	font-weight: bold;
+	color: white;
+}
+
+#comSubject {
+	font-size: 40pt;
+}
+
+#comIdReg_date {
+	color: #90baff;
+	font-weight: bold;
+	font-size: 17px;
+}
+#content {
+	font-size: 18pt;;
+	
+}
+#hashtag {
+	color: #90baff;
+	font-size: 15pt;
+}
+
+hr {
+	color:#c4dcff;
+	border-color:#c4dcff;
+	background-color:#c4dcff;
+	border:solid 1px 
+}
+
+#updateButton {
+	border: 0;
+	color: white;
+	background-color: #ffca5d;
+	float: right;
+	color: white;
+	outline:#ffca5d solid 0.5px;
+	font-size: 17px;
+	font-weight:bold;
+	border-radius: 45%;
+
+	padding: 20px 15px 15px 15px;
+	border: 1px;
+	margin-right: 1%;
+	font-family: "GangwonEdu_OTFBoldA";
+	
+}
+#updateButton:hover{
+      background-color: white;
+      color: #ffca5d;
+      font-weight: bolder;
+      cursor: pointer;
+   }
+#deleteButton {
+	border: 0;
+	color: black;
+	outline: #5c97f9 solid 0.5px;
+	background-color: white;
+	float: right;
+	font-size: 17px;
+	font-weight:bold;
+	border-radius: 45%;
+	padding: 20px 15px 15px 15px;
+	border: 1px;
+	margin-right: 1%;
+	font-family: "GangwonEdu_OTFBoldA";
+
+} 
+#deleteButton:hover{
+      background-color: #5c97f9;
+      color: #ffca5d;
+      font-weight: bolder;
+      cursor: pointer;
+   } 
+#listBackButton {
+	border: 0;
+	outline: 0;
+	color: white;
+	background-color:#ffca5d;
+	float: left;
+	font-weight :bold;
+	width: 4em;
+	height: 30px;
+	text-align: center;
+	border-radius: 5px;
+
+	padding-top: 10px;
+	padding-bottom: 24px;
+	font-size: 13pt;
+	font-weight: bold;
+	font-family: "GangwonEdu_OTFBoldA";
+	
+}
+#listBackButton:hover{
+      background-color: white;
+      color: #ffca5d;
+      font-weight: bolder;
+      cursor: pointer;
+   }
+
+#recnUser_id { /*댓글의 아이디*/
+	color: #90baff;
+	font-size: 15pt;
+	line-height: 2px;
+}
+
+#recnRe_content { /*댓글*/
+	color: #90baff;
+	font-size: 15pt;
+	line-height: 2px;
+	font-weight: bold;
+}
+
+.commentWrite {
+	display: flex;
+	
+	font-family: "GangwonEdu_OTFBoldA";
+}
+
+.commentALL {
+	display: flex;
+}
+
+#commentarea {
+	width: 75%;
+	height: 100;
+	border-color: #90baff;
+	border-radius: 10px;
+	  resize: none;
+}
+
+#commWritebtn {
+	color: white;
+	background-color: #90baff;
+	outline: #5c97f9 solid 0.5px;
+	font-size: 16px;
+	border-radius: 15%;
+	padding: 8px 15px;
+	border: 1px;
+	margin-right: 1%;
+	margin-left : 10px;
+	margin-top: 30px;
+	
+}
+
+#commWritebtn:hover{
+      background-color: white;
+      color: #ffca5d;
+      font-weight: bolder;
+      cursor: pointer;
+}
+.commUA {
+	margin-left: 90%;
+	display: flex;
+
+}
+
+#commDeletebtn {
+		color: white;
+		background-color: #90baff;
+		outline: #5c97f9 solid 0.5px;
+		font-size: 13px;
+		border-radius: 15%;
+		padding: 5px 10px;
+		border: 1px;
+		margin-left: 5px;
+
+}
+#commDeletebtn:hover{
+      background-color: white;
+      color: #ffca5d;
+      font-weight: bolder;
+      cursor: pointer;
+}
+
+#commupdate{
+	color: white;
+	background-color: #90baff;
+	outline: #5c97f9 solid 0.5px;
+	font-size: 13px;
+	border-radius: 15%;
+	padding: 5px 10px;
+	border: 1px;
+	
+}
+#commupdate:hover{
+      background-color: white;
+      color: #ffca5d;
+      font-weight: bolder;
+      cursor: pointer;
+}

@@ -1,0 +1,177 @@
+header {
+  background-color: #90baff;
+  width: 100%;
+  height: 216px;
+}
+
+@font-face {
+    font-family: 'GangwonEdu_OTFBoldA';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2201-2@1.0/GangwonEdu_OTFBoldA.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'HSSaemaul-Regular';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2108@1.1/HSSaemaul-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+header #title {
+	text-align: center;
+	line-height: 220px;
+	font-size: 5em;
+	color: #fff;
+  	font-family: "HSSaemaul-Regular";
+  	/* cursor: pointer; */
+}
+header #mainclick{
+	text-align: center;
+	line-height: 220px;
+	font-size: 1em;
+	color: white;
+  	font-family: "HSSaemaul-Regular";
+  	cursor: pointer;
+  	text-decoration: none;
+  	
+}
+
+header #login {
+	border: 1px solid;
+    background-color: #90baff;
+    font-family: "GangwonEdu_OTFBoldA";
+    color: white;
+    height: 50px;
+    width: 6%;
+    padding-top: 10px;
+    font-size: 1.6vw;
+    border-radius: 20px;
+    font-weight: bolder;
+    position: absolute;
+    top: 16.4%;
+    left: 91%;
+    white-space: nowrap;
+    cursor: pointer;
+}
+
+header #logout {
+	border: 1px solid;
+    background-color: #90baff;
+    font-family: "GangwonEdu_OTFBoldA";
+    color: white;
+    height: 50px;
+    width: 7%;
+    padding-top: 10px;
+    font-size: 1.6vw;
+    border-radius: 20px;
+    font-weight: bolder;
+    position: absolute;
+    top: 16.4%;
+    left: 90%;
+    white-space: nowrap;
+    cursor: pointer;
+}
+
+header #managerlogin {
+    border: 1px solid;
+    background-color: #90baff;
+    font-family: "GangwonEdu_OTFBoldA";
+    color: white;
+    width: 11%;
+    height: 50px;
+    padding-top: 10px;
+    font-size: 1.6vw;
+    border-radius: 20px;
+    font-weight: bolder;
+    position: absolute;
+    left: 79%;
+    top: 16.4%;
+    white-space: nowrap;
+    cursor: pointer;
+}
+header #managerpage {
+    border: 1px solid;
+    background-color: #90baff;
+    font-family: "GangwonEdu_OTFBoldA";
+    color: white;
+    width: 8%;
+    height: 50px;
+    padding-top: 10px;
+    font-size: 1.6vw;
+    border-radius: 20px;
+    font-weight: bolder;
+    position: absolute;
+    left: 81%;
+    top: 16.4%;
+    white-space: nowrap;
+    cursor: pointer;
+}
+
+header #mypage {
+    border: 1px solid;
+    background-color: #90baff;
+    font-family: "GangwonEdu_OTFBoldA";
+    color: white;
+    width: 8%;
+    height: 50px;
+    padding-top: 10px;
+    font-size: 1.6vw;
+    border-radius: 20px;
+    font-weight: bolder;
+    position: absolute;
+    left: 81%;
+    top: 16.4%;
+    white-space: nowrap;
+    cursor: pointer;
+}
+
+.dropbtn {
+	background-color: #90baff;
+    color: white;
+    text-align: right;
+    border: none;
+    position: relative;
+    cursor: pointer;
+}
+
+.dropdown {
+    position: absolute;
+    left: 94%;
+    top: 20px;
+    cursor: pointer;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #F2F2F2;
+    min-width: 95px;
+    box-shadow: 0px 8px 16px 0px rgb(0 0 0 / 20%);
+    z-index: 1;
+    overflow: visible;
+    font-size: 14px;
+    cursor: pointer;
+    right: 17%;
+    height: 256%;
+    margin-top: 0.1%;
+    border-bottom-color: white;
+    
+}
+
+.dropdown-content a {
+  color: black;
+  padding: 10px 16px 10px 16px;
+  text-decoration: none;
+  display: block;
+  text-align: left;
+  height: 9px;
+  line-height: 1;
+  cursor: pointer;
+  font-family: "GangwonEdu_OTFBoldA";
+}
+
+
+
+.dropdown-content a:hover {background-color: #ddd;}
+
+.dropdown:hover .dropdown-content {display: block;}

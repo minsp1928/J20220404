@@ -1,0 +1,89 @@
+@charset "UTF-8";
+.join {
+	font-size: 33px;
+	margin-bottom: 22px;
+}
+.joinTbl {
+	border-color: #90baff;
+	border-collapse: collapse;
+	font-size: 25px;
+	background: white;
+}
+
+.joinTbl td:nth-child(1){
+	color: white;
+	background:  #B2CCFF;
+	padding: 5px;
+	vertical-align: middle;
+}
+.joinTbl td:nth-child(2){
+	color: black;
+	float: none;
+}
+.joinTbl #pic_button{
+	text-align: left;
+}
+#id_botton {
+	border-radius: 10px;
+	border: 1px solid #fdd3529e;
+	background-color: #90baff;
+	color: white;
+	float: none;
+}
+#sub_botton {
+	border-radius: 10px;
+	border: 1px solid #fdd3529e;
+	background-color: #90baff;
+	color: white;
+	float: none;
+	width: 80px;
+	height: 30px;
+}
+#re_botton {
+	border-radius: 10px;
+	border: 1px solid #fdd3529e;
+	background-color: #90baff;
+	color: white;
+	float: none;
+	width: 80px;
+	height: 30px;
+}
+
+input[type="file"]{
+	border-radius: 5px;
+	border: 1px solid #fdd3529e;
+	color:  #90baff;
+	float: left;
+	width: 100%;
+	border: none;
+}
+.in_tag {
+	width: auto;
+	float: left;
+	font-size: 18px;
+}
+.gender {
+	text-align: left;
+}
+.gender input {
+	margin-right: 15px;
+}
+.workout {
+	text-align: left;
+}
+.workout input {
+	margin-right: 15px;
+}
+.in2_tag {
+	float: left;
+	width: 95%;
+	text-align: left;
+	font-size: 18px;
+}
+
+body {text-align: center;}
+for label.reg {color: #ffffff}
+table {background-color: #90baff;
+	   margin: auto;}
+tr {font-size: 24;}
+input {border: none;}

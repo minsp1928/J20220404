@@ -1,0 +1,20 @@
+create or replace FUNCTION  com_re_content
+( p_ref            IN         community.ref%TYPE )   -- 1) Parameter : 게시판번호
+RETURN             Varchar2                          -- 2) 최신 댓글 Type 선언 
+IS
+   v_user_id          community.user_id%TYPE;             -- 3) 최신 댓글  게시판번호
+   v_pct            NUMBER(3);
+BEGIN
+  -- 2) ref별 최신 댓글  게시판번호
+   SELECT          user_id
+   INTO            v_user_id
+   FROM            community
+   WHERE           ref = p_ref
+   and             re_step = (SELECT min(re_step)
+                              FROM   community
+                              WHERE  ref = p_ref
+                              and re_step > 0
+                              )
+   ;
+   RETURN(v_user_id);  
+END com_re_content;

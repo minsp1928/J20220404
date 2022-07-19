@@ -1,0 +1,88 @@
+@charset "UTF-8";
+
+#wrap {
+	width:80%;
+	height: 100%;
+	text-align: center;
+} 
+.centerInsert{
+	text-align: center;
+	font-size: 30px;
+	color: #ffd590;
+	font-weight: 900;
+}
+.centerImg {
+	width: 80;
+	height: 80;
+}
+
+.updateTbl {
+	padding: 10px;
+	width: 60%;
+	height:100%;
+	border: 1px solid #90c7ff;
+	border-collapse: collapse;
+	margin-left: auto;
+	margin-right:auto;
+	font-size: 20px;
+	color:	#566f99;
+}
+
+.updateTbl tr {
+	height: 2em;
+	border: 1px solid #90c7ff;
+}
+
+.updateTbl th {
+	height: 2em;
+	width: 6em;
+	background-color: #90c7ff;
+	border: 1px solid white;
+	color: white;
+}
+
+.updateTbl td {
+	height: 2em;
+	width: 15em;
+	padding-left: 10px;
+}
+
+.updateTbl td select {
+	padding:2px;
+	width: 60%;
+	height: 80%;
+	font-size: 15px;
+	border: none;
+	font-family: "GangwonEdu_OTFBoldA";
+}
+.updateTbl td input{
+	width:70%;
+	border: 0;
+	font-size: 15px;
+	font-family: "GangwonEdu_OTFBoldA";
+	
+}
+#context_area {
+	width: 90%;
+	height: 6.25em;
+	border: none;
+	resize: none;
+}
+ 
+.submit {
+	width:100%;
+	margin-top: 20px;
+	margin-left: auto;
+	margin-right:auto;
+	text-align: center;	 
+}
+.submit input {
+	background-color: #ffd590;
+	border: none;
+	border-radius: 15px;
+	color: white;
+	font-size: 15px;
+	padding: 10px;
+	font-family: "GangwonEdu_OTFBoldA";
+	
+}

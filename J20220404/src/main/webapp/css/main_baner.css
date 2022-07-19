@@ -1,0 +1,66 @@
+@charset "UTF-8";
+
+.baner {
+	margin-top: 5%;
+	display: inline-block;
+	text-align: center;
+}
+
+.baner #space1 {
+	width: 80%;
+	border: 0;
+	background-color: white;
+}
+.baner #space1:hover{
+	background-color: white;
+}
+.baner #health1space:hover{
+	content: url("../images/health.gif");
+	background-color: white;
+}
+
+.baner #space2 {
+	width: 80%;
+	border: 0;
+	background-color: white;
+}
+.baner #space2:hover{
+	background-color: white;
+}
+.baner #swimming2space:hover{
+	content: url("../images/swimming3.gif");
+	background-color: white;
+}
+
+.baner #space3 {
+	width: 80%;
+	border: 0;
+	background-color: white;
+}
+.baner #space3:hover{
+	background-color: white;
+}
+.baner #yoga3space:hover{
+	content: url("../images/yoga.gif");
+	background-color: white;
+}
+
+.baner #space4 {
+	width: 80%;
+	border: 0;
+	background-color: white;
+}
+.baner #space4:hover{
+	background-color: white;
+}
+.baner #golf4space:hover{
+	content: url("../images/golf2.gif");
+	background-color: white;
+}
+
+@font-face {
+    font-family: 'GangwonEdu_OTFBoldA';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2201-2@1.0/GangwonEdu_OTFBoldA.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}

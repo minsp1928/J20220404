@@ -1,0 +1,94 @@
+@charset "UTF-8";
+.myPage {
+	font-size: 33px;
+	margin-bottom: 22px;
+}
+.myPageTbl {
+	border-color: #90baff;
+	border-collapse: collapse;
+	font-size: 25px;
+	background: white;
+}
+
+.myPageTbl td:nth-child(1){
+	color: white;
+	background:  #B2CCFF;
+	padding: 5px;
+	vertical-align: middle;
+}
+.myPageTbl td:nth-child(2){
+	color: black;
+	float: none;
+	width: 200px;
+}
+.myPageTbl #pic_button{
+	text-align: left;
+}
+#sub_botton {
+	border-radius: 10px;
+	border: 1px solid #fdd3529e;
+	border-color: #90baff;
+	background-color: #90baff;
+	color: white;
+	float: none;
+	width: 80px;
+	height: 30px;
+}
+#up_botton {
+	border-radius: 10px;
+	border: 1px solid #fdd3529e;
+	border-color: #90baff;
+	background-color: #90baff;
+	color: white;
+	float: none;
+	width: 80px;
+	height: 30px;
+}
+#out_botton {
+	border-radius: 10px;
+	border: 1px solid #fdd3529e;
+	border-color: #90baff;
+	background-color: #90baff;
+	color: white;
+	float: none;
+	width: 80px;
+	height: 30px;
+}
+
+input[type="file"]{
+	border-radius: 10px;
+	border: 1px solid #fdd3529e;
+	color:  #90baff;
+	float: none;
+}
+.in_tag {
+	width: auto;
+	float: left;
+}
+.gender {
+	text-align: center;
+}
+.gender input {
+	margin-right: 15px;
+}
+.workout {
+	text-align: center;
+}
+.workout input {
+	margin-right: 15px;
+}
+.in2_tag {
+	float: left;
+	width: 95%;
+	text-align: left;
+}
+
+body {text-align: center;}
+for label.reg {color: #ffffff}
+table {background-color: #90baff;
+		   margin: auto;}
+tr {font-size: 24; }
+input {
+	border: none;
+}
+	

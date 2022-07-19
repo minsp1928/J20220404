@@ -1,0 +1,55 @@
+@charset "UTF-8";
+.idCheck {
+	font-size: 33px;
+	margin-bottom: 22px;
+}
+
+.idCheck_table {
+	border-color: #90baff;
+	border-collapse: collapse;
+	font-size: 25px;
+	background: white;
+	width: 360px;
+	margin-bottom: 10px;
+}
+.idCheck_table td:nth-child(1){
+	color: white;
+	background:  #B2CCFF;
+	padding: 5px;
+	vertical-align: middle;
+}
+.idCheck_table td:nth-child(2){
+	color: black;
+	float: none;
+}
+#sub_button {
+	border-radius: 10px;
+	border: 1px solid #fdd3529e;
+	background-color: #90baff;
+	color: white;
+	float: none;
+	width: 80px;
+}
+#res_button {
+	border-radius: 10px;
+	border: 1px solid #fdd3529e;
+	background-color: #90baff;
+	color: white;
+	float: none;
+	width: 80px;
+}
+.text {
+	float: left;
+	width: 95%;
+	text-align: left;
+	
+}
+	body {text-align: center;}
+	table {background-color: #90baff;
+		   width: 80px;
+		   margin: auto;}
+	tr {font-size: 24; }
+    input {
+	font-size: 20px;
+	border: none;
+}

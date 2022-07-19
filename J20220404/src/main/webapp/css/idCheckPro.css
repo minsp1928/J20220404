@@ -1,0 +1,57 @@
+@charset "UTF-8";
+.idChPro {
+	font-size: 33px;
+	margin-bottom: 22px;
+}
+
+.idChPro_table {
+	border-color: #90baff;
+	border-collapse: collapse;
+	font-size: 25px;
+	background: white;
+	width: 280px;
+	margin-bottom: 10px;
+}
+.idChPro_table td:nth-child(1){
+	color: white;
+	background:  #B2CCFF;
+	padding: 5px;
+	vertical-align: middle;
+}
+.idChPro_table td:nth-child(2){
+	color: black;
+	float: none;
+}
+#log_button {
+	border-radius: 10px;
+	border: 1px solid #fdd3529e;
+	background-color: white;
+	color: #90baff;
+	float: none;
+	width: 100px;
+	font-size: 17px;
+}
+#psCh_button {
+	border-radius: 10px;
+	border: 1px solid #fdd3529e;
+	background-color: white;
+	color: #90baff;
+	float: none;
+	width: 120px;
+	font-size: 17px;
+}
+.text {
+	float: left;
+	width: 95%;
+	text-align: left;
+	
+}
+ 	body {text-align: center;}
+	table {background-color: #90baff;
+		   width: 80px;
+		   margin: auto;}
+	tr {font-size: 24; }
+    input {
+	font-size: 20px; 
+	border: none;
+	} 

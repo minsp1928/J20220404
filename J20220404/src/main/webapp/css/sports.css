@@ -1,0 +1,157 @@
+@charset "UTF-8";
+
+.type {
+    width: 60%;
+    height: 40px;
+    border : none;
+    display: flex;
+    margin: auto;
+}
+.type div{
+    margin: auto;
+}
+.type_blue {
+    width: 50%;
+    height: 40px;
+    border: 1px solid  #90baff;
+    border-radius: 10px 0 0 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+.type_blue a {
+    color:  #90baff;
+    font-size: 1.6em;
+    text-decoration:none;
+}
+.type_white {
+    width: 50%;
+    height: 40px;
+    background-color: #90baff;
+    border: 1px solid  #90baff;
+    border-radius: 0 10px 10px 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+.type_white a {
+    color:  white;
+    font-size: 1.6em;
+    text-decoration:none;
+}
+.myButton {
+	background: #fdd3529e;
+	border-radius: 40px;
+	border: 1px solid #fdd3529e;;
+	display: inline-block;
+	cursor: pointer;
+	color: #c58c18;
+	font-size: 17px;
+	padding: 13px 31px;
+	margin: 10px 15px;
+	text-decoration: none;
+	text-shadow: 0px 1px 0px #c58c18;
+}
+
+.myButton:hover {
+	background-color: #ffffff;
+	color: #fdd3529e;
+}
+
+.myButton:active {
+	position: relative;
+	top: 1px;
+}
+
+.container_sport {
+	max-width: 1100px;
+	margin: 30px auto;
+	background: white;
+	overflow: hidden;
+	/* display: flex; */
+}
+.container_loc {
+	max-width: 1100px;
+	margin: 30px auto;
+	background: white;
+	overflow: hidden;
+	display: flex;
+}
+
+.center {
+	margin: 20px;
+	border: 2px solid #90baff;
+	border-radius: 10px;
+	float: left;
+	width: 320px;
+	height: 60vh;
+	overflow: hidden;
+}
+
+.context {
+	padding-top: 2%;
+	padding-left: 6%;
+	padding-right: 6%;
+	padding-bottom: 4%;
+	text-align: left;
+}
+
+.sportsImage {
+	display: block;
+	margin: 0 auto;
+	padding: 3%;
+	width: 90%;
+	height: 40%;
+	border-radius: 10px;
+	object-fit: cover;
+}
+
+.nonSportsImage{
+	display: block;
+	margin: 0 auto;
+	padding: 3%;
+	width: 90%;
+	height: 40%;
+	border-radius: 10px;
+	object-fit: cover;
+}
+.check{
+	width: 15%;
+	height: 15%;
+	border-radius: 10px;
+	object-fit: cover;
+}
+.checkcnt{
+	display: flex;
+	justify-content: center;
+}
+.checkcnt span{
+	line-height: 3em;
+}
+
+div #map{
+	width:60%;
+	height:60vh;
+	margin-left: 5%;
+}
+
+.buttons{
+	text-align: center;
+	margin-top: 2%;
+}
+.likebtn{
+	padding:0;
+	border: none;
+	background: white;	
+}
+/*여기서부터 추가*/
+#exname {
+	color:  #5668ff;
+	font-size: 20px;
+	font: bold;
+}
+#site {
+	color:  #ffd590;
+}

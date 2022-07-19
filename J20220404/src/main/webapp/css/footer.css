@@ -1,0 +1,53 @@
+﻿/* 하단 푸터 */
+
+footer {
+	width: 96%;
+    height:70px;
+    text-align: center;
+	line-height: 8px;
+	background-color: #fdd3529e;
+    padding: 30px;
+    overflow: hidden;
+    font-family: "GangwonEdu_OTFBoldA";
+    color: #c58c18;
+    position: relative;
+    transform: translateY(0%);
+}
+
+footer #line_right{
+	text-align: left;
+}
+footer #footer_logo {
+    float:left;
+    margin:5px 0 0 210px;
+}
+footer #address {
+    float:left;
+    margin:20px 0 0 50px;
+}
+footer #footer_sns {
+    float:right;
+    margin:20px 10px 0 0;
+}
+footer #footer_sns li {
+    display:inline;
+}
+
+footer #baner {
+	font-size: 1em;
+	/* position: relative;
+	top: 0; */
+	display: flex;
+	justify-content: center;
+	padding-top: 10px;
+}
+footer #line_left img{
+	background-color: white;
+}
+
+@font-face {
+    font-family: 'GangwonEdu_OTFBoldA';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2201-2@1.0/GangwonEdu_OTFBoldA.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
